@@ -1,0 +1,17 @@
+<div class="form-container">
+  <div class="form-card">
+    <h2>Novi klijent</h2>
+    <form [formGroup]="clientForm" (ngSubmit)="save()">    
+      <div class="form-group"><label>Korisničko ime</label><input type="text" formControlName="username"></div>
+      <div class="form-group"><label>Lozinka</label><input type="password" formControlName="password"></div>
+      <div class="form-group"><label>Ime</label><input type="text" formControlName="firstname"></div>
+      <div class="form-group"><label>Prezime</label><input type="text" formControlName="lastname"></div>
+      <div class="form-group"><label>Telefon</label><input type="text" formControlName="phone"></div>
+      <div class="form-group"><label>Datum rođenja</label><input type="date" formControlName="birthday"></div>
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Sačuvaj</button>
+        <a routerLink="/clients"><button type="button" class="btn-ghost">Otkaži</button></a>
+      </div>
+    </form>
+  </div>
+</div>

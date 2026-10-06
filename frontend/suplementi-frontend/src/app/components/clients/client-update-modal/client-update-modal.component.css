@@ -1,0 +1,14 @@
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;
+}
+.modal-content {
+  background: #fff; border-radius: 12px; padding: 28px; width: 100%; max-width: 460px; max-height: 90vh; overflow-y: auto;
+}
+.modal-content h3 { margin: 0 0 20px; color: #1e3126; font-family: 'Poppins', sans-serif; }
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; font-size: 0.78rem; font-weight: 600; color: #6b675f; margin-bottom: 5px; text-transform: uppercase; }
+.form-group input, .form-group select { width: 100%; padding: 9px 11px; border: 1px solid #e4dfd3; border-radius: 6px; box-sizing: border-box; }
+.modal-actions { display: flex; gap: 10px; margin-top: 18px; }
+.btn-primary { padding: 10px 18px; background: #2f4a3c; color: #fff; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.btn-ghost { padding: 10px 18px; background: transparent; border: 1px solid #e4dfd3; color: #2f4a3c; border-radius: 6px; font-weight: 600; cursor: pointer; }

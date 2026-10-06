@@ -1,0 +1,25 @@
+<div class="content">
+  <h1>Moja adresa</h1>
+  <p class="hint">Potrebna je adresa za isporuku porudžbina.</p>
+
+  <!-- Ako klijent VEĆ ima adresu -->
+  <div class="address-card" *ngIf="addresses.length > 0 && !showForm">
+    <div>
+      <strong>{{ addresses[0].street }} {{ addresses[0].number }}</strong><br>
+      <span>{{ addresses[0].city }}, {{ addresses[0].postal_code }}</span>
+    </div>
+    <button class="btn-accent" (click)="showForm = true">Izmeni adresu</button>
+  </div>
+
+  <!-- Forma za unos/izmenu -->
+  <div class="form-card" *ngIf="showForm || addresses.length === 0">
+    <form [formGroup]="addressForm" (ngSubmit)="save()">
+      <div class="form-group"><label>Ulica</label><input type="text" formControlName="street"></div>
+      <div class="form-group"><label>Broj</label><input type="text" formControlName="number"></div>
+      <div class="form-group"><label>Grad</label><input type="text" formControlName="city"></div>
+      <div class="form-group"><label>Poštanski broj</label><input type="number" formControlName="postal_code"></div>
+      <button type="submit" class="btn-primary">Sačuvaj adresu</button>
+      <button type="button" class="btn-ghost" *ngIf="addresses.length > 0" (click)="showForm = false" style="margin-left:8px">Otkaži</button>
+    </form>
+  </div>
+</div>

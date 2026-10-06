@@ -1,0 +1,38 @@
+<div class="content">
+  <h1>Sve porudžbine</h1>
+
+  <div *ngIf="orders.length; else empty">
+    <div class="order-box" *ngFor="let o of orders">
+      <div class="order-head">
+        <div>
+          <strong>Porudžbina</strong>
+          <span class="meta">{{ o.client?.firstname }} {{ o.client?.lastname }}</span>
+          <span class="date">{{ o.ordered | date:'dd.MM.yyyy' }}</span>
+        </div>
+        <div>
+          <button class="btn-ghost" (click)="toggleItems(o)">
+            {{ expandedOrderId === o.id ? 'Sakrij' : 'Stavke' }}
+          </button>
+          <button class="btn-delete" (click)="delete(o)">Obriši</button>
+        </div>
+      </div>
+
+      <div class="order-items" *ngIf="expandedOrderId === o.id">
+        <table>
+          <thead><tr><th>Proizvod</th><th>Količina</th><th>Cena</th><th>Ukupno</th></tr></thead>
+          <tbody>
+            <tr *ngFor="let item of items">
+              <td>{{ item.product?.name }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item.priceAtPurchase | number:'1.0-0' }} RSD</td>
+              <td>{{ (item.priceAtPurchase * item.quantity) | number:'1.0-0' }} RSD</td>
+            </tr>
+          </tbody>
+          <tfoot><tr><td colspan="3" class="tr">Ukupno:</td><td>{{ orderTotal() | number:'1.0-0' }} RSD</td></tr></tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #empty><p class="empty">Još uvek nema porudžbina.</p></ng-template>
+</div>

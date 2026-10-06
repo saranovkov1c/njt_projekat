@@ -1,0 +1,39 @@
+<div class="hero">
+  <h1>Suplementi za svaki cilj</h1>
+  <p>Protein, kreatin, vitamini i još mnogo toga — sve na jednom mestu.</p>
+</div>
+
+<div class="content">
+  <!-- Pretraga -->
+  <div class="search-row">
+    <input [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Pretraži proizvode...">
+    <button class="btn-primary" (click)="search()">Pretraži</button>
+  </div>
+
+  <!-- Dugme za dodavanje (samo admin) -->
+  <div class="admin-bar" *ngIf="userService.getUserStatus() === 'admin'">
+    <a routerLink="/products/add"><button class="btn-accent">+ Novi proizvod</button></a>
+  </div>
+
+  <!-- Tabovi kategorija -->
+  <div class="category-tabs">
+    <button class="tab" [class.active]="selectedCategoryId === null" (click)="selectCategory(null)">Sve</button>
+    <button class="tab" *ngFor="let c of categories"
+            [class.active]="selectedCategoryId === c.id"
+            (click)="selectCategory(c.id)">
+      {{ c.name }}
+    </button>
+  </div>
+
+  <!-- Grid proizvoda -->
+  <div class="product-grid" *ngIf="products.length; else empty">
+    <app-product-card
+      *ngFor="let product of products"
+      [product]="product"
+      (removedProduct)="onProductRemoved($event)">
+    </app-product-card>
+  </div>
+  <ng-template #empty>
+    <p class="empty">Nema proizvoda za prikaz.</p>
+  </ng-template>
+</div>

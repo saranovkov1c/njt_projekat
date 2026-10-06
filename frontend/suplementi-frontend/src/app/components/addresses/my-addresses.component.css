@@ -1,0 +1,15 @@
+.content { max-width: 700px; margin: 0 auto; padding: 24px 20px 60px; }
+.head-row { display: flex; justify-content: space-between; align-items: center; }
+.head-row h1 { color: #1e3126; font-family: 'Poppins', sans-serif; margin: 0; }
+.hint { color: #6b675f; font-size: 0.88rem; margin: 4px 0 20px; }
+.form-card { background: #fff; border: 1px solid #e4dfd3; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; font-size: 0.78rem; font-weight: 600; color: #6b675f; margin-bottom: 5px; text-transform: uppercase; }
+.form-group input { width: 100%; padding: 9px 11px; border: 1px solid #e4dfd3; border-radius: 6px; box-sizing: border-box; }
+.address-list { display: flex; flex-direction: column; gap: 12px; }
+.address-card { background: #fff; border: 1px solid #e4dfd3; border-radius: 10px; padding: 16px; display: flex; justify-content: space-between; align-items: center; }
+.btn-accent { padding: 9px 16px; background: #e2a73e; color: #1e3126; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.btn-primary { padding: 10px 18px; background: #2f4a3c; color: #fff; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.btn-delete { background: transparent; border: 1px solid #b3492d; color: #b3492d; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.btn-delete:hover { background: #b3492d; color: #fff; }
+.empty { text-align: center; color: #6b675f; padding: 30px; font-style: italic; }

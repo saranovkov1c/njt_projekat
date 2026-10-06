@@ -1,0 +1,9 @@
+.form-container { display: flex; justify-content: center; padding: 40px 20px; }
+.form-card { background: #fff; border: 1px solid #e4dfd3; border-radius: 12px; padding: 32px; width: 100%; max-width: 500px; }
+.form-card h2 { margin: 0 0 24px; color: #1e3126; font-family: 'Poppins', sans-serif; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: #6b675f; margin-bottom: 6px; text-transform: uppercase; }
+.form-group input, .form-group select { width: 100%; padding: 10px 12px; border: 1px solid #e4dfd3; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box; }
+.form-actions { display: flex; gap: 10px; margin-top: 8px; }
+.btn-primary { padding: 11px 20px; background: #2f4a3c; color: #fff; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.btn-ghost { padding: 11px 20px; background: transparent; border: 1px solid #e4dfd3; color: #2f4a3c; border-radius: 6px; font-weight: 600; cursor: pointer; }

@@ -1,0 +1,12 @@
+.content { max-width: 900px; margin: 0 auto; padding: 24px 20px 60px; }
+.content h1 { color: #1e3126; font-family: 'Poppins', sans-serif; }
+.cart-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; background: #fff; }
+.cart-table th { text-align: left; padding: 12px; border-bottom: 2px solid #e4dfd3; font-size: 0.75rem; text-transform: uppercase; color: #6b675f; }
+.cart-table td { padding: 12px; border-bottom: 1px solid #e4dfd3; }
+.qty-btn { width: 26px; height: 26px; border: 1px solid #e4dfd3; background: #fff; border-radius: 4px; cursor: pointer; }
+.qty { margin: 0 12px; }
+.btn-delete { background: transparent; border: 1px solid #b3492d; color: #b3492d; padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+.total-label { text-align: right; font-weight: 600; }
+.total-value { font-weight: 600; font-size: 1.1rem; color: #1e3126; }
+.btn-primary { padding: 12px 24px; background: #2f4a3c; color: #fff; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.empty { text-align: center; color: #6b675f; padding: 40px; font-style: italic; }

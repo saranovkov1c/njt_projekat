@@ -1,0 +1,42 @@
+<nav class="navbar">
+  <div class="nav-inner">
+    <span class="brand" routerLink="/products">🌿 PureFuel</span>
+
+    <div class="nav-links">
+      <a routerLink="/products" routerLinkActive="active">Proizvodi</a>
+
+      <!-- ADMIN / RADNIK -->
+      <ng-container *ngIf="userService.getUserStatus() === 'admin'">
+        <a routerLink="/clients" routerLinkActive="active">Klijenti</a>
+        <a routerLink="/orders" routerLinkActive="active">Sve porudžbine</a>
+      </ng-container>
+
+      <!-- KLIJENT -->
+      <ng-container *ngIf="clientService.getUserStatus() === 'user'">
+        <a routerLink="/cart" routerLinkActive="active">
+          Korpa <span *ngIf="cartService.getItemCount() > 0" class="cart-count">{{ cartService.getItemCount() }}</span>
+        </a>
+        <a routerLink="/my-orders" routerLinkActive="active">Moje porudžbine</a>
+        <a routerLink="/my-addresses" routerLinkActive="active">Moja adresa</a>
+      </ng-container>
+    </div>
+
+    <div class="nav-right">
+      <!-- NEULOGOVAN -->
+      <ng-container *ngIf="userService.getUserStatus() !== 'admin' && clientService.getUserStatus() !== 'user'">
+        <a routerLink="/login">Prijava</a>
+        <a routerLink="/register">Registracija</a>
+      </ng-container>
+
+      <!-- ULOGOVAN -->
+      <ng-container *ngIf="userService.getUserStatus() === 'admin' || clientService.getUserStatus() === 'user'">
+        <span class="user-tag">
+          {{ userService.getUserStatus() === 'admin' ? '⚙️ Admin' : '👤 ' + (clientService.getSpecificClient()?.firstname || 'Klijent') }}
+        </span>
+        <a class="logout" (click)="logout()">Odjava</a>
+      </ng-container>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

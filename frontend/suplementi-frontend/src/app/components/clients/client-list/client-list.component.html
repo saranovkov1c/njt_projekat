@@ -1,0 +1,33 @@
+<div class="content">
+  <div class="head-row">
+    <h1>Klijenti</h1>
+    <a routerLink="/clients/add"><button class="btn-accent">+ Novi klijent</button></a>
+  </div>
+
+  <table class="data-table" *ngIf="clients.length; else empty">
+    <thead>
+      <tr><th>ID</th><th>Korisničko ime</th><th>Ime i prezime</th><th>Telefon</th><th>Rođendan</th><th></th></tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of clients">
+        <td>{{ c.id }}</td>
+        <td>{{ c.username }}</td>
+        <td>{{ c.firstname }} {{ c.lastname }}</td>
+        <td>{{ c.phone }}</td>
+        <td>{{ c.birthday | date:'dd.MM.yyyy' }}</td>
+        <td>
+          <button class="btn-edit" (click)="edit(c)">Izmeni</button>
+          <button class="btn-delete" (click)="delete(c)">Obriši</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #empty><p class="empty">Nema registrovanih klijenata.</p></ng-template>
+
+  <app-client-update-modal
+    *ngIf="editingClient"
+    [client]="editingClient"
+    (saveClient)="onSave($event)"
+    (closeModal)="editingClient = null">
+  </app-client-update-modal>
+</div>

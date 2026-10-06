@@ -1,0 +1,17 @@
+<div class="modal-overlay" (click)="close()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h3>Izmeni klijenta</h3>
+    <form [formGroup]="updateForm" (ngSubmit)="save()">
+      <div class="form-group"><label>Korisničko ime</label><input type="text" formControlName="username"></div>
+      <div class="form-group"><label>Lozinka</label><input type="text" formControlName="password"></div>
+      <div class="form-group"><label>Ime</label><input type="text" formControlName="firstname"></div>
+      <div class="form-group"><label>Prezime</label><input type="text" formControlName="lastname"></div>
+      <div class="form-group"><label>Telefon</label><input type="text" formControlName="phone"></div>
+      <div class="form-group"><label>Datum rođenja</label><input type="date" formControlName="birthday"></div>
+      <div class="modal-actions">
+        <button type="submit" class="btn-primary">Sačuvaj</button>
+        <button type="button" class="btn-ghost" (click)="close()">Otkaži</button>
+      </div>
+    </form>
+  </div>
+</div>

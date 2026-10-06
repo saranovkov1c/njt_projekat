@@ -1,0 +1,39 @@
+<div class="content">
+  <h1>Korpa</h1>
+
+  <div *ngIf="cartService.getItems().length; else empty">
+    <table class="cart-table">
+      <thead>
+        <tr><th>Proizvod</th><th>Cena</th><th>Količina</th><th>Ukupno</th><th></th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let line of cartService.getItems()">
+          <td>{{ line.product.name }}</td>
+          <td>{{ line.product.price | number:'1.0-0' }} RSD</td>
+          <td>
+            <button class="qty-btn" (click)="decrease(line.product.id, line.quantity)">-</button>
+            <span class="qty">{{ line.quantity }}</span>
+            <button class="qty-btn" (click)="increase(line.product.id, line.quantity)">+</button>
+          </td>
+          <td>{{ (line.product.price * line.quantity) | number:'1.0-0' }} RSD</td>
+          <td><button class="btn-delete" (click)="remove(line.product.id)">Ukloni</button></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3" class="total-label">Ukupno:</td>
+          <td class="total-value">{{ cartService.getTotal() | number:'1.0-0' }} RSD</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <button class="btn-primary" [disabled]="submitting" (click)="placeOrder()">
+      {{ submitting ? 'Slanje...' : 'Potvrdi porudžbinu' }}
+    </button>
+  </div>
+
+  <ng-template #empty>
+    <p class="empty">Korpa je prazna. <a routerLink="/products">Pogledaj proizvode</a>.</p>
+  </ng-template>
+</div>
